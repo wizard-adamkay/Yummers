@@ -19,5 +19,6 @@
     <string name="textview">TextView</string>
     <string name="order_history">Order History</string>
     <string name="user_homepage">User Homepage</string>
+    <string name="business_homepage">Business Homepage</string>
     <string name="search">Search</string>
 </resources>
