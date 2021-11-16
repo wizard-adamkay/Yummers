@@ -6,11 +6,15 @@ public class Business implements Serializable {
     private String address;
     private String name;
     private String phone;
-
-    public Business(String name, String address, String phone) {
+    private String owner;
+    private Menu menu;
+    private Order[] currentOrders;
+    private Order[] orderHistory;
+    public Business(String name, String address, String phone, String owner) {
         this.address = address;
         this.name = name;
         this.phone = phone;
+        this.owner = owner;
     }
 
     public String getAddress() {
@@ -37,12 +41,21 @@ public class Business implements Serializable {
         this.phone = phone;
     }
 
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "Business{" +
                 "address='" + address + '\'' +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
+                ", owner='" + owner + '\'' +
                 '}';
     }
 }

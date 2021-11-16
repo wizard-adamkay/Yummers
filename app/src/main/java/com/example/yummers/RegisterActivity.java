@@ -1,5 +1,6 @@
 package com.example.yummers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("asdf", "here");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         // Initialize Firebase Auth
@@ -56,8 +58,10 @@ public class RegisterActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("asdf", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Business business = new Business(businessName, businessAddress, businessPhone);
+                            Business business = new Business(businessName, businessAddress, businessPhone, user.getUid());
                             Log.d("asdf",business.toString());
+                            Intent intent = new Intent(RegisterActivity.this, BusinessHomepageActivity.class);
+                            startActivity(intent);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
