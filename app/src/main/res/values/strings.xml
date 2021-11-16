@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Yummers</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="signIn">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signUp">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="register_a_business">Register a business</string>
+    <string name="yummers">yummers!</string>
+    <string name="register">Register</string>
+    <string name="business_name">Business Name</string>
+    <string name="business_location">Business Location</string>
+    <string name="business_phone_number">Business Phone Number</string>
 </resources>
