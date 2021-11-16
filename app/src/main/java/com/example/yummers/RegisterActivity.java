@@ -65,11 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.d("asdf", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Business business = new Business(businessName, businessAddress, businessPhone, user.getUid());
-                            Log.d("asdf",business.toString());
-                            Map<String, Object> docData = new HashMap<>();
-                            docData.put("modalExample", business);
-                            db.collection("data").document("restaurants")
-                                    .set(docData)
+                            db.collection("restaurants").document()
+                                    .set(business)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {

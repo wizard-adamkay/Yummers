@@ -10,6 +10,10 @@ public class Business implements Serializable {
     private Menu menu;
     private Order[] currentOrders;
     private Order[] orderHistory;
+
+    public Business() {
+    }
+
     public Business(String name, String address, String phone, String owner) {
         this.address = address;
         this.name = name;
@@ -47,6 +51,30 @@ public class Business implements Serializable {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public Order[] getCurrentOrders() {
+        return currentOrders;
+    }
+
+    public void setCurrentOrders(Order[] currentOrders) {
+        this.currentOrders = currentOrders;
+    }
+
+    public Order[] getOrderHistory() {
+        return orderHistory;
+    }
+
+    public void setOrderHistory(Order[] orderHistory) {
+        this.orderHistory = orderHistory;
     }
 
     @Override

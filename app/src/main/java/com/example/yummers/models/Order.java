@@ -6,6 +6,9 @@ public class Order implements Serializable {
     private Item[] items;
     private double totalCost;
 
+    public Order() {
+    }
+
     public Order(Item[] items) {
         this.items = items;
         for(Item item : items){

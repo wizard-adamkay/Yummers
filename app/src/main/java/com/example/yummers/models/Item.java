@@ -8,6 +8,9 @@ public class Item implements Serializable {
     private double price;
     private String[] tags;
 
+    public Item() {
+    }
+
     public Item(String name, double price, String[] tags) {
         this.name = name;
         this.price = price;
