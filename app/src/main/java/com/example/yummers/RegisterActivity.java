@@ -12,19 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yummers.models.Business;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    FirebaseFirestore db;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.e("asdf", "here");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        db = FirebaseFirestore.getInstance();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
     }
@@ -59,9 +65,23 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.d("asdf", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Business business = new Business(businessName, businessAddress, businessPhone, user.getUid());
-                            Log.d("asdf",business.toString());
-                            Intent intent = new Intent(RegisterActivity.this, BusinessHomepageActivity.class);
-                            startActivity(intent);
+                            db.collection("restaurants").document()
+                                    .set(business)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("asdf", "DocumentSnapshot successfully written!");
+                                            Intent intent = new Intent(RegisterActivity.this, BusinessHomepageActivity.class);
+                                            startActivity(intent);
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w("asdf", "Error writing document", e);
+                                        }
+                                    });
+
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

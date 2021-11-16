@@ -10,6 +10,9 @@ public class Menu implements Serializable {
         this.items = items;
     }
 
+    public Menu() {
+    }
+
     public Item[] getItems() {
         return items;
     }
