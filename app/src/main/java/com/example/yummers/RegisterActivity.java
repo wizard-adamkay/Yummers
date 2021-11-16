@@ -1,5 +1,6 @@
 package com.example.yummers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +18,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    private final EditText businessNameET = findViewById(R.id.businessName);
+    private final EditText businessAddressET = findViewById(R.id.businessAddress);
+    private final EditText businessPhoneET = findViewById(R.id.businessPhone);
+    private final EditText passwordET = findViewById(R.id.password);
+    private final EditText emailET = findViewById(R.id.email);
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view){
-        EditText businessNameET = findViewById(R.id.businessName);
-        EditText businessAddressET = findViewById(R.id.businessAddress);
-        EditText businessPhoneET = findViewById(R.id.businessPhone);
-        EditText passwordET = findViewById(R.id.password);
-        EditText emailET = findViewById(R.id.email);
         String businessName = businessNameET.getText().toString();
         String businessAddress = businessAddressET.getText().toString();
         String businessPhone = businessPhoneET.getText().toString();
@@ -56,8 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("asdf", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Business business = new Business(businessName, businessAddress, businessPhone);
+                            Business business = new Business(businessName, businessAddress, businessPhone, user.getUid());
                             Log.d("asdf",business.toString());
+                            Intent intent = new Intent(RegisterActivity.this, BusinessHomepageActivity.class);
+                            startActivity(intent);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
