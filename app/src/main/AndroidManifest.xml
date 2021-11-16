@@ -27,6 +27,10 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+        <activity android:name=".AddItemActivity"
+            android:exported="false"/>
+        <activity android:name=".CreateMenuActivities"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
