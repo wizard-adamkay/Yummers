@@ -2,6 +2,7 @@ package com.example.yummers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,6 +20,7 @@ public class BusinessHomepageActivity extends AppCompatActivity {
 
     }
     public void updateMenu(View view){
-
+        Intent intent =  new Intent(this, CreateMenuActivities.class);
+        startActivity(intent);
     }
 }
