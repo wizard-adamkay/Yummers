@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void register(View view) {
+        Log.e("asdf", "here");
         Intent intent = new Intent(this, RegisterActivity.class);
+        Log.e("asdf", "here");
         startActivity(intent);
     }
 }

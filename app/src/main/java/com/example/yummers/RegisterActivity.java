@@ -18,14 +18,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
-    private final EditText businessNameET = findViewById(R.id.businessName);
-    private final EditText businessAddressET = findViewById(R.id.businessAddress);
-    private final EditText businessPhoneET = findViewById(R.id.businessPhone);
-    private final EditText passwordET = findViewById(R.id.password);
-    private final EditText emailET = findViewById(R.id.email);
+
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("asdf", "here");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         // Initialize Firebase Auth
@@ -43,6 +40,11 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view){
+        EditText businessNameET = findViewById(R.id.businessName);
+        EditText businessAddressET = findViewById(R.id.businessAddress);
+        EditText businessPhoneET = findViewById(R.id.businessPhone);
+        EditText passwordET = findViewById(R.id.password);
+        EditText emailET = findViewById(R.id.email);
         String businessName = businessNameET.getText().toString();
         String businessAddress = businessAddressET.getText().toString();
         String businessPhone = businessPhoneET.getText().toString();
