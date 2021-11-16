@@ -58,7 +58,9 @@ public class LoginActivity extends AppCompatActivity {
                             db.collection("restaurants").whereEqualTo("owner", user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
                                 Intent intent;
                                 if(!queryDocumentSnapshots.getDocuments().isEmpty()){
+                                    Business business = queryDocumentSnapshots.getDocuments().get(0).toObject(Business.class);
                                     intent = new Intent(LoginActivity.this, BusinessHomepageActivity.class);
+                                    intent.putExtra("business",business);
                                 } else{
                                     intent = new Intent(LoginActivity.this, UserHomepageActivity.class);
                                 }

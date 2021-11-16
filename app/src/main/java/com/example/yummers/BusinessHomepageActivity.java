@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.yummers.models.Business;
 
 public class BusinessHomepageActivity extends AppCompatActivity {
 
@@ -12,6 +17,10 @@ public class BusinessHomepageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_homepage);
+        TextView title = findViewById(R.id.textView4);
+        Business business = (Business) getIntent().getSerializableExtra("business");
+        Log.e("business", business.toString());
+        title.setText(business.getName());
     }
     public void pastOrders(View view){
 

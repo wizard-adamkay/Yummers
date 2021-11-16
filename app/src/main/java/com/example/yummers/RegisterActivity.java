@@ -75,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             Log.d("asdf", "DocumentSnapshot successfully written!");
 
                                             Intent intent = new Intent(RegisterActivity.this, BusinessHomepageActivity.class);
+                                            intent.putExtra("business",business);
                                             startActivity(intent);
                                         }
                                     })
