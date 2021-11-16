@@ -10,19 +10,24 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.yummers.models.Business;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.auth.User;
 
 public class LoginActivity extends AppCompatActivity {
-
+    FirebaseFirestore db;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        db = FirebaseFirestore.getInstance();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
     }
@@ -50,7 +55,15 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("asdf", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //TODO check if user is business owner otherwise send to userHompage
+                            db.collection("restaurants").whereEqualTo("owner", user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                                Intent intent;
+                                if(!queryDocumentSnapshots.getDocuments().isEmpty()){
+                                    intent = new Intent(LoginActivity.this, BusinessHomepageActivity.class);
+                                } else{
+                                    intent = new Intent(LoginActivity.this, UserHomepageActivity.class);
+                                }
+                                startActivity(intent);
+                            });
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
