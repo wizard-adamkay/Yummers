@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.yummers.models.Business;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,10 +34,12 @@ public class UserHomepageActivity extends AppCompatActivity {
         String search = searchET.getText().toString();
         db.collection("restaurants").whereEqualTo("name", search).get().addOnSuccessListener(queryDocumentSnapshots -> {
             //note this is jank solution that needs to get fixed
-            Business business = queryDocumentSnapshots.getDocuments().get(0).toObject(Business.class);
-            Log.d("business retrieved:", business.toString());
-            Log.d("test", queryDocumentSnapshots.getDocuments().toString());
-            Log.d("test", queryDocumentSnapshots.toString());
+            if(!queryDocumentSnapshots.getDocuments().isEmpty()) {
+                Business business = queryDocumentSnapshots.getDocuments().get(0).toObject(Business.class);
+                Log.d("business retrieved:", business.toString());
+            } else {
+                Toast.makeText(getApplicationContext(), "Search Yielded no Results", Toast.LENGTH_LONG).show();
+            }
         });
     }
 }
