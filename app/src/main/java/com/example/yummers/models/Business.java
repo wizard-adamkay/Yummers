@@ -1,15 +1,17 @@
 package com.example.yummers.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Business implements Serializable {
     private String address;
     private String name;
     private String phone;
     private String owner;
+    private String ID;
     private Menu menu;
-    private Order[] currentOrders;
-    private Order[] orderHistory;
+    private List<Order> currentOrders;
+    private List<Order> orderHistory;
 
     public Business() {
     }
@@ -61,20 +63,28 @@ public class Business implements Serializable {
         this.menu = menu;
     }
 
-    public Order[] getCurrentOrders() {
+    public List<Order> getCurrentOrders() {
         return currentOrders;
     }
 
-    public void setCurrentOrders(Order[] currentOrders) {
+    public void setCurrentOrders(List<Order> currentOrders) {
         this.currentOrders = currentOrders;
     }
 
-    public Order[] getOrderHistory() {
+    public List<Order> getOrderHistory() {
         return orderHistory;
     }
 
-    public void setOrderHistory(Order[] orderHistory) {
+    public void setOrderHistory(List<Order> orderHistory) {
         this.orderHistory = orderHistory;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     @Override

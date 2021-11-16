@@ -3,7 +3,7 @@ package com.example.yummers.models;
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class Item implements Serializable {
+public class Item {
     private String name;
     private double price;
     private String[] tags;
