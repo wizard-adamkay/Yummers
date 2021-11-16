@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -65,12 +66,14 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.d("asdf", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Business business = new Business(businessName, businessAddress, businessPhone, user.getUid());
-                            db.collection("restaurants").document()
-                                    .set(business)
+                            DocumentReference ref = db.collection("restaurants").document();
+                            business.setID(ref.getId());
+                            ref.set(business)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
                                             Log.d("asdf", "DocumentSnapshot successfully written!");
+
                                             Intent intent = new Intent(RegisterActivity.this, BusinessHomepageActivity.class);
                                             startActivity(intent);
                                         }
@@ -81,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             Log.w("asdf", "Error writing document", e);
                                         }
                                     });
+
 
                             //updateUI(user);
                         } else {

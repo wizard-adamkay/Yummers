@@ -1,6 +1,7 @@
 package com.example.yummers;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +33,8 @@ public class OrderArrayAdapter extends ArrayAdapter<Order> {
         TextView tvName = (TextView) convertView.findViewById(R.id.tvOrderNumber);
         TextView tvHome = (TextView) convertView.findViewById(R.id.tvOrderQuantity);
         // Populate the data into the template view using the data object
-        //tvName.setText(order.number);
-        tvHome.setText("$" + String.valueOf(order.getTotalCost()));
+        tvName.setText(order.getItems().toString());
+        tvHome.setText("$" + order.getTotalCost());
         // Return the completed view to render on screen
         return convertView;
     }

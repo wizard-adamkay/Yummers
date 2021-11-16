@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yummers">
         <activity
+            android:name=".OrderViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserHomepageActivity"
             android:exported="false" />
         <activity
