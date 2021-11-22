@@ -2,7 +2,6 @@ package com.example.yummers.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Item implements Serializable {
     private String name;

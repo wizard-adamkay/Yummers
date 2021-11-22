@@ -13,6 +13,8 @@ import com.example.yummers.models.Business;
 
 public class BusinessHomepageActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +30,19 @@ public class BusinessHomepageActivity extends AppCompatActivity {
     public void currentOrders(View view){
 
     }
+
     public void updateMenu(View view){
         Intent intent =  new Intent(this, CreateMenuActivities.class);
+        startActivity(intent);
+    }
+
+    public void viewMenu(View view) {
+        Intent intent = new Intent(this,MenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void myMenu(View view) {
+        Intent intent = new Intent(this, MyMenuActivity.class);
         startActivity(intent);
     }
 }
