@@ -1,17 +1,18 @@
 package com.example.yummers.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Item {
+public class Item implements Serializable {
     private String name;
     private double price;
-    private String[] tags;
+    private ArrayList<String> tags;
 
     public Item() {
     }
 
-    public Item(String name, double price, String[] tags) {
+    public Item(String name, double price, ArrayList<String> tags) {
         this.name = name;
         this.price = price;
         this.tags = tags;
@@ -33,11 +34,11 @@ public class Item {
         this.price = price;
     }
 
-    public String[] getTags() {
+    public ArrayList<String> getTags() {
         return tags;
     }
 
-    public void setTags(String[] tags) {
+    public void setTags(ArrayList<String> tags) {
         this.tags = tags;
     }
 
@@ -46,7 +47,7 @@ public class Item {
         return "Item{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
-                ", tags=" + Arrays.toString(tags) +
+                ", tags=" + tags.toString() +
                 '}';
     }
 }
