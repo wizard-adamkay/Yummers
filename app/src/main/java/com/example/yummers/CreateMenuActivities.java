@@ -88,9 +88,9 @@ public class CreateMenuActivities extends AppCompatActivity {
 
         if (requestCode == REQUEST_ITEM_ADD && resultCode == RESULT_OK) {
             String itemName = data.getStringExtra("ITEMNAME");
-            double price = data.getDoubleExtra("ITEMPRICE", -1);
+            double itemPrice = data.getDoubleExtra("ITEMPRICE", -1);
             ArrayList<String> tags = new ArrayList<String>();
-            Item item = new Item(itemName, price, tags);
+            Item item = new Item(itemName, itemPrice, tags);
             menu.addItem(item);
             updateMenu();
         }
