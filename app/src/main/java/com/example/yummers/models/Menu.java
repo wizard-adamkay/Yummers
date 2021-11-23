@@ -10,6 +10,11 @@ public class Menu implements Serializable {
 
     private ArrayList<Item> items;
     private String owner;
+
+    public Menu() {
+        items = new ArrayList<>();
+        owner = "unknown";
+    }
     public Menu(ArrayList<Item> items, String owner) {
 
         this.items = items;
@@ -18,6 +23,10 @@ public class Menu implements Serializable {
 
     public String getOwner() {
         return owner;
+    }
+
+    public void setOwner (String owner){
+        this.owner = owner;
     }
 
     public ArrayList<Item> getItems() {
@@ -37,6 +46,7 @@ public class Menu implements Serializable {
         return "Menu{" +
 
                 "items=" + items.toString() +
+                "owner=" + owner +
 
                 '}';
     }

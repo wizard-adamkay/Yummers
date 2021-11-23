@@ -8,14 +8,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yummers.models.Item;
 import com.example.yummers.models.Menu;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
@@ -46,7 +50,8 @@ public class CreateMenuActivities extends AppCompatActivity {
         user = fireAuth.getCurrentUser();
         items = new ArrayList<>();
         menu = new Menu(items, user.getUid());
-        updateMenu();
+
+        retrieveData();
     }
 
     public void addItem(View v) {
@@ -58,15 +63,39 @@ public class CreateMenuActivities extends AppCompatActivity {
 
 //        Log.e("menu", menu.toString());
 
-        DocumentReference documentReference =
-                firestore.collection("menus").document();
-        documentReference.set(menu).addOnSuccessListener(new OnSuccessListener<Void>() {
+        firestore.collection("menus").document(user.getEmail()).set(menu).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.e("update cloud menu: ", "trying to update");
             }
         });
         finish();
+    }
+    public void retrieveData() {
+
+        firestore.collection("menus").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            if (!queryDocumentSnapshots.isEmpty()){
+                for (int i = 0; i<queryDocumentSnapshots.size(); i++) {
+                    menu = queryDocumentSnapshots.getDocuments().get(i).toObject(Menu.class);
+                    Log.e("menu-data(" + i +"):", menu.toString());
+                }
+            } else {
+                Log.e("menu-data: ", "retrieve data failed");
+            }
+
+        });
+
+//        firestore.collection("menus").whereEqualTo("owner", user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+//                 if (!queryDocumentSnapshots.isEmpty()){
+//                     menu = queryDocumentSnapshots.getDocuments().get(0).toObject(Menu.class);
+//                     updateMenu();
+//                     Log.e("menu-data: ", menu.toString());
+//
+//                 } else {
+//                     Log.e("menu-data: ", "retrieve data failed");
+//                 }
+//
+//         });
     }
 
     public void updateMenu() {
