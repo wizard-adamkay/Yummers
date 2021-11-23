@@ -1,5 +1,7 @@
 package com.example.yummers;
 
+import static com.google.firebase.firestore.SetOptions.merge;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yummers.models.Business;
 import com.example.yummers.models.Item;
 import com.example.yummers.models.Menu;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +38,7 @@ public class CreateMenuActivities extends AppCompatActivity {
     FirebaseAuth fireAuth;
     FirebaseFirestore firestore;
     FirebaseUser user;
+    String docId;
     Button add;
     Button done;
     TextView itemsText;
@@ -49,7 +53,6 @@ public class CreateMenuActivities extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         user = fireAuth.getCurrentUser();
         items = new ArrayList<>();
-        menu = new Menu(items, user.getUid());
 
         retrieveData();
     }
@@ -63,28 +66,32 @@ public class CreateMenuActivities extends AppCompatActivity {
 
 //        Log.e("menu", menu.toString());
 
-        firestore.collection("menus").document(user.getEmail()).set(menu).addOnSuccessListener(new OnSuccessListener<Void>() {
+        firestore.collection("restaurants").document(docId).update("menu", menu).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Log.e("update cloud menu: ", "trying to update");
+                Log.e("update cloud menu: ", "trying to update to " + docId);
             }
         });
+
         finish();
     }
     public void retrieveData() {
 
-        firestore.collection("menus").get().addOnSuccessListener(queryDocumentSnapshots -> {
+        firestore.collection("restaurants").whereEqualTo("owner", user.getUid())
+                .get().addOnSuccessListener(queryDocumentSnapshots -> {
             if (!queryDocumentSnapshots.isEmpty()){
                 for (int i = 0; i<queryDocumentSnapshots.size(); i++) {
-                    menu = queryDocumentSnapshots.getDocuments().get(i).toObject(Menu.class);
-                    Log.e("menu-data(" + i +"):", menu.toString());
+                    docId = queryDocumentSnapshots.getDocuments().get(0).getId();
+                    Log.e("docId: ", docId);
+                    Business b = queryDocumentSnapshots.getDocuments().get(i).toObject(Business.class);
+                    menu = b.getMenu() == null ? new Menu(items) : b.getMenu();
+                    Log.e("B-data(" + i +"):", b.toString());
+                    Log.e("menu-data: ", menu != null ? menu.toString() : "no data");
                 }
             } else {
                 Log.e("menu-data: ", "retrieve data failed");
             }
-
         });
-
 //        firestore.collection("menus").whereEqualTo("owner", user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
 //                 if (!queryDocumentSnapshots.isEmpty()){
 //                     menu = queryDocumentSnapshots.getDocuments().get(0).toObject(Menu.class);
@@ -99,11 +106,12 @@ public class CreateMenuActivities extends AppCompatActivity {
     }
 
     public void updateMenu() {
-        if (menu.getItems().size() == 0){
+        if (menu.getItems().size() == 0) {
             itemsText.setText("No item");
         } else {
             itemsText.setText("");
-            for (int i = 0; i<menu.getItems().size(); i++){
+
+            for (int i = 0; i < menu.getItems().size(); i++) {
                 itemsText.append(menu.getItems().get(i).toString() + "\n");
             }
         }
@@ -112,15 +120,14 @@ public class CreateMenuActivities extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_ITEM_ADD && resultCode == RESULT_OK){
 
+        if (requestCode == REQUEST_ITEM_ADD && resultCode == RESULT_OK) {
             String itemName = data.getStringExtra("ITEMNAME");
-            double price = data.getDoubleExtra("ITEMPRICE", -1);
+            double itemPrice = data.getDoubleExtra("ITEMPRICE", -1);
             ArrayList<String> tags = new ArrayList<String>();
-            Item item = new Item(itemName, price, tags);
+            Item item = new Item(itemName, itemPrice, tags);
             menu.addItem(item);
             updateMenu();
         }
     }
-
 }
