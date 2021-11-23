@@ -10,14 +10,19 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yummers.models.Business;
 import com.example.yummers.models.Item;
 import com.example.yummers.models.Menu;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
@@ -33,6 +38,7 @@ public class CreateMenuActivities extends AppCompatActivity {
     FirebaseAuth fireAuth;
     FirebaseFirestore firestore;
     FirebaseUser user;
+    String docId;
     Button add;
     Button done;
     TextView itemsText;
@@ -47,8 +53,8 @@ public class CreateMenuActivities extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         user = fireAuth.getCurrentUser();
         items = new ArrayList<>();
-        menu = new Menu(items, user.getUid());
-        updateMenu();
+
+        retrieveData();
     }
 
     public void addItem(View v) {
@@ -56,18 +62,47 @@ public class CreateMenuActivities extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_ITEM_ADD);
     }
 
-    public void done(View v) {
-        DocumentReference documentReference =
-            firestore.collection("menus").document();
+    public void done(View v){
 
-        documentReference.set(menu).addOnSuccessListener(new OnSuccessListener<Void>() {
+//        Log.e("menu", menu.toString());
+
+        firestore.collection("restaurants").document(docId).update("menu", menu).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Log.e("update cloud menu: ", "trying to update");
+                Log.e("update cloud menu: ", "trying to update to " + docId);
             }
         });
 
         finish();
+    }
+    public void retrieveData() {
+
+        firestore.collection("restaurants").whereEqualTo("owner", user.getUid())
+                .get().addOnSuccessListener(queryDocumentSnapshots -> {
+            if (!queryDocumentSnapshots.isEmpty()){
+                for (int i = 0; i<queryDocumentSnapshots.size(); i++) {
+                    docId = queryDocumentSnapshots.getDocuments().get(0).getId();
+                    Log.e("docId: ", docId);
+                    Business b = queryDocumentSnapshots.getDocuments().get(i).toObject(Business.class);
+                    menu = b.getMenu() == null ? new Menu(items) : b.getMenu();
+                    Log.e("B-data(" + i +"):", b.toString());
+                    Log.e("menu-data: ", menu != null ? menu.toString() : "no data");
+                }
+            } else {
+                Log.e("menu-data: ", "retrieve data failed");
+            }
+        });
+//        firestore.collection("menus").whereEqualTo("owner", user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+//                 if (!queryDocumentSnapshots.isEmpty()){
+//                     menu = queryDocumentSnapshots.getDocuments().get(0).toObject(Menu.class);
+//                     updateMenu();
+//                     Log.e("menu-data: ", menu.toString());
+//
+//                 } else {
+//                     Log.e("menu-data: ", "retrieve data failed");
+//                 }
+//
+//         });
     }
 
     public void updateMenu() {
