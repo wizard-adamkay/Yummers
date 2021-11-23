@@ -1,5 +1,7 @@
 package com.example.yummers;
 
+import static com.google.firebase.firestore.SetOptions.merge;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,27 +56,27 @@ public class CreateMenuActivities extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_ITEM_ADD);
     }
 
-    public void done(View v){
-
-//        Log.e("menu", menu.toString());
-
+    public void done(View v) {
         DocumentReference documentReference =
-                firestore.collection("menus").document();
+            firestore.collection("menus").document();
+
         documentReference.set(menu).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.e("update cloud menu: ", "trying to update");
             }
         });
+
         finish();
     }
 
     public void updateMenu() {
-        if (menu.getItems().size() == 0){
+        if (menu.getItems().size() == 0) {
             itemsText.setText("No item");
         } else {
             itemsText.setText("");
-            for (int i = 0; i<menu.getItems().size(); i++){
+
+            for (int i = 0; i < menu.getItems().size(); i++) {
                 itemsText.append(menu.getItems().get(i).toString() + "\n");
             }
         }
@@ -83,15 +85,14 @@ public class CreateMenuActivities extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_ITEM_ADD && resultCode == RESULT_OK){
 
+        if (requestCode == REQUEST_ITEM_ADD && resultCode == RESULT_OK) {
             String itemName = data.getStringExtra("ITEMNAME");
-            double price = data.getDoubleExtra("ITEMPRICE", -1);
+            double itemPrice = data.getDoubleExtra("ITEMPRICE", -1);
             ArrayList<String> tags = new ArrayList<String>();
-            Item item = new Item(itemName, price, tags);
+            Item item = new Item(itemName, itemPrice, tags);
             menu.addItem(item);
             updateMenu();
         }
     }
-
 }

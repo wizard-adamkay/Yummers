@@ -29,7 +29,7 @@ public class AddItemActivity extends AppCompatActivity {
         finish();
     }
 
-    public void confirm(final View v){
+    public void confirm(final View v) {
         Intent intent = new Intent();
         intent.putExtra("ITEMPRICE", Double.parseDouble(price.getText().toString()));
         intent.putExtra("ITEMNAME", itemName.getText().toString());

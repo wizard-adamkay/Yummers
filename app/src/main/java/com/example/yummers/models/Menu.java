@@ -10,8 +10,8 @@ public class Menu implements Serializable {
 
     private ArrayList<Item> items;
     private String owner;
-    public Menu(ArrayList<Item> items, String owner) {
 
+    public Menu(ArrayList<Item> items, String owner) {
         this.items = items;
         this.owner = owner;
     }
@@ -25,19 +25,17 @@ public class Menu implements Serializable {
     }
 
     public void setItems(ArrayList<Item> items) {
-
         this.items = items;
     }
 
     public void addItem(Item i) {
         this.items.add(i);
     }
+
     @Override
     public String toString() {
         return "Menu{" +
-
                 "items=" + items.toString() +
-
                 '}';
     }
 }
