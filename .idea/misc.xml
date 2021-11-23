@@ -3,17 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_order_view.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/order_row.xml" value="0.33" />
+        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_add_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_user_homepage.xml" value="0.264" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.190284528026642" />
         <entry key="app/src/main/res/layout/activity_business_homepage.xml" value="0.2336439930051302" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_menu_business.xml" value="0.26959650994967915" />
+        <entry key="app/src/main/res/layout/activity_order_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.24048913043478262" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_user_homepage.xml" value="0.24048913043478262" />
+        <entry key="app/src/main/res/layout/order_row.xml" value="0.33" />
       </map>
     </option>
   </component>
