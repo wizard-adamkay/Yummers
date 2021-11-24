@@ -10,10 +10,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.yummers.models.Business;
+import com.example.yummers.models.Menu;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class UserHomepageActivity extends AppCompatActivity {
     FirebaseFirestore db;
@@ -35,9 +39,18 @@ public class UserHomepageActivity extends AppCompatActivity {
         String search = searchET.getText().toString();
         db.collection("restaurants").whereEqualTo("name", search).get().addOnSuccessListener(queryDocumentSnapshots -> {
             //note this is jank solution that needs to get fixed
+            ArrayList<Business> businesses = new ArrayList<>();
             if(!queryDocumentSnapshots.getDocuments().isEmpty()) {
-                Business business = queryDocumentSnapshots.getDocuments().get(0).toObject(Business.class);
-                Log.d("business retrieved:", business.toString());
+                for(int i = 0; i < queryDocumentSnapshots.size(); i++) {
+                    Business b = queryDocumentSnapshots.getDocuments().get(i).toObject(Business.class);
+                    Log.e("business retrieved:", b.toString());
+                    businesses.add(b);
+                }
+                Intent intent =  new Intent(this, SearchActivity.class);
+                //Bundle bundle = new Bundle();
+                //bundle.putSerializable("businesses", (Serializable) businesses);
+                intent.putExtra("b", businesses);
+                startActivity(intent);
             } else {
                 Toast.makeText(getApplicationContext(), "Search Yielded no Results", Toast.LENGTH_LONG).show();
             }
