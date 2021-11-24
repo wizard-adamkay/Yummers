@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yummers.models.Business;
 import com.example.yummers.models.Item;
@@ -42,6 +44,8 @@ public class CreateMenuActivities extends AppCompatActivity {
     Button add;
     Button done;
     TextView itemsText;
+    RecyclerView recyclerView;
+    RecyclerItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,8 @@ public class CreateMenuActivities extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         user = fireAuth.getCurrentUser();
         items = new ArrayList<>();
+        recyclerView = findViewById(R.id.items_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         retrieveData();
     }
@@ -62,18 +68,25 @@ public class CreateMenuActivities extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_ITEM_ADD);
     }
 
+    public void deleteItem() {
+
+    }
+
     public void done(View v){
 
 //        Log.e("menu", menu.toString());
 
+        updateFirebaseMenu();
+
+        finish();
+    }
+    public void updateFirebaseMenu() {
         firestore.collection("restaurants").document(docId).update("menu", menu).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.e("update cloud menu: ", "trying to update to " + docId);
             }
         });
-
-        finish();
     }
     public void retrieveData() {
 
@@ -87,6 +100,9 @@ public class CreateMenuActivities extends AppCompatActivity {
                     menu = b.getMenu() == null ? new Menu(items) : b.getMenu();
                     Log.e("B-data(" + i +"):", b.toString());
                     Log.e("menu-data: ", menu != null ? menu.toString() : "no data");
+
+                    adapter = new RecyclerItemAdapter(this, menu.getItems());
+                    recyclerView.setAdapter(adapter);
                 }
             } else {
                 Log.e("menu-data: ", "retrieve data failed");
@@ -108,12 +124,6 @@ public class CreateMenuActivities extends AppCompatActivity {
     public void updateMenu() {
         if (menu.getItems().size() == 0) {
             itemsText.setText("No item");
-        } else {
-            itemsText.setText("");
-
-            for (int i = 0; i < menu.getItems().size(); i++) {
-                itemsText.append(menu.getItems().get(i).toString() + "\n");
-            }
         }
     }
 
@@ -127,6 +137,8 @@ public class CreateMenuActivities extends AppCompatActivity {
             ArrayList<String> tags = new ArrayList<String>();
             Item item = new Item(itemName, itemPrice, tags);
             menu.addItem(item);
+            adapter.notifyItemInserted(menu.getItems().size() - 1);
+            recyclerView.scrollToPosition(menu.getItems().size() - 1);
             updateMenu();
         }
     }
