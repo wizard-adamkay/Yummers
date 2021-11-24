@@ -124,6 +124,8 @@ public class CreateMenuActivities extends AppCompatActivity {
     public void updateMenu() {
         if (menu.getItems().size() == 0) {
             itemsText.setText("No item");
+        } else {
+            itemsText.setText("You have " + menu.getItems().size() + " items in your menu.");
         }
     }
 
