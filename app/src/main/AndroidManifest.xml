@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yummers">
         <activity
+            android:name=".CustOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerMenu"
+            android:exported="true" />
+        <activity
             android:name=".SearchActivity"
             android:exported="true" />
         <activity

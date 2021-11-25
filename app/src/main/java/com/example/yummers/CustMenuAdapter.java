@@ -10,42 +10,43 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yummers.models.Business;
+import com.example.yummers.models.Item;
 
 import java.util.ArrayList;
 
-public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
-    private ArrayList<Business> bList;
-    private RestaurantClickListener listener;
+public class CustMenuAdapter extends RecyclerView.Adapter<CustMenuAdapter.ViewHolder>{
+    private ArrayList<Item> iList;
+    private CustMenuAdapter.RestaurantClickListener listener;
     Context context;
 
-    public SearchAdapter(Context c, ArrayList<Business> businesses, RestaurantClickListener l) {
-        bList = businesses;
+    public CustMenuAdapter(Context c, ArrayList<Item> foods, CustMenuAdapter.RestaurantClickListener l) {
+        iList = foods;
         context = c;
         listener = l;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CustMenuAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View searchView = inflater.inflate(R.layout.rest_row, parent, false);
-        ViewHolder vh = new ViewHolder(searchView);
+        CustMenuAdapter.ViewHolder vh = new CustMenuAdapter.ViewHolder(searchView);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Business b = bList.get(position);
+    public void onBindViewHolder(@NonNull CustMenuAdapter.ViewHolder holder, int position) {
+        Item i = iList.get(position);
 
         TextView tvN = holder.tvN;
         TextView tvA = holder.tvA;
-        tvN.setText(b.getName());
-        tvA.setText(b.getAddress());
+        tvN.setText(i.getName());
+        tvA.setText(Double.toString(i.getPrice()));
     }
 
     @Override
     public int getItemCount() {
-        return bList.size();
+        return iList.size();
     }
 
     public interface RestaurantClickListener {
