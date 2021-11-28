@@ -20,13 +20,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_main);
     }
-
 
     public void signUp(View view) {
         Intent intent = new Intent(this, SignUpActivity.class);

@@ -11,10 +11,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/business_homepage"
-        android:textSize="24dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"/>
+        android:layout_marginTop="64dp"
+        android:text="@string/business_homepage"
+        android:textSize="24dp" />
 
     <Button
         android:id="@+id/button3"
@@ -25,21 +25,43 @@
         android:layout_centerVertical="true"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/update_menu_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="updateMenu"
         android:text="@string/update_menu"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:onClick="viewMenu"
+        android:text="@string/view_menu"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:onClick="myMenu"
+        android:text="@string/my_menu"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/current_orders"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/update_menu_btn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"/>
+        />
 
 </RelativeLayout>

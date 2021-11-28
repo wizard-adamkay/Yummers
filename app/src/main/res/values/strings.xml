@@ -25,4 +25,7 @@
     <string name="user_homepage"><b>You are signed in, welcome!</b></string>
     <string name="business_homepage">Business Homepage</string>
     <string name="search">Search</string>
+    <string name="view_menu">All Menu</string>
+    <string name="my_menu">My Menu</string>
+    <string name="recycler_view">recyclerView</string>
 </resources>

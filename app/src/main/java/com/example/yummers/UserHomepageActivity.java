@@ -29,6 +29,7 @@ public class UserHomepageActivity extends AppCompatActivity {
         Intent intent =  new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
     public void search(View view) {
         EditText searchET = findViewById(R.id.searchEditText);
         String search = searchET.getText().toString();
@@ -41,5 +42,10 @@ public class UserHomepageActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Search Yielded no Results", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void viewMenu(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
 }

@@ -23,8 +23,6 @@
         android:text="@string/signUp"
         android:textSize="24dp" />
 
-
-
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
@@ -59,6 +57,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="86dp"
         android:onClick="signUp"
-        android:text="@string/signUp" />
+        android:text="@string/signUp"/>
 
 </RelativeLayout>

@@ -21,6 +21,7 @@ public class Business implements Serializable {
         this.name = name;
         this.phone = phone;
         this.owner = owner;
+        this.menu = null;
     }
 
     public String getAddress() {
@@ -94,6 +95,7 @@ public class Business implements Serializable {
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", owner='" + owner + '\'' +
+                ", meun=" + menu + '/' +
                 '}';
     }
 }
