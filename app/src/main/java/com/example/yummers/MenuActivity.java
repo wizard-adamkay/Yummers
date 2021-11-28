@@ -50,7 +50,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void EventChangeListener() {
-        db.collection("menus").orderBy("name", Query.Direction.ASCENDING)
+        db.collection("restaurants").orderBy("name", Query.Direction.ASCENDING)
             .addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

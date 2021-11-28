@@ -28,4 +28,6 @@
     <string name="view_menu">All Menu</string>
     <string name="my_menu">My Menu</string>
     <string name="recycler_view">recyclerView</string>
+    <string name="all_business">All Restaurants</string>
+    <string name="search_business">Search Restaurant</string>
 </resources>

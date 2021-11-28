@@ -57,6 +57,22 @@ public class UserHomepageActivity extends AppCompatActivity {
         });
     }
 
+    public void allRestaurant(View view) {
+        db.collection("restaurants").get().addOnSuccessListener(queryDocumentSnapshots -> {
+           ArrayList<Business> allBusiness = new ArrayList<>();
+
+           if (!queryDocumentSnapshots.getDocuments().isEmpty()) {
+               for (int i = 0; i < queryDocumentSnapshots.size(); i++) {
+                   Business b = queryDocumentSnapshots.getDocuments().get(i).toObject(Business.class);
+                   allBusiness.add(b);
+               }
+               Intent intent = new Intent(this, SearchActivity.class);
+               intent.putExtra("b", allBusiness);
+               startActivity(intent);
+           }
+        });
+    }
+
     public void viewMenu(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
