@@ -11,10 +11,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/business_homepage"
-        android:textSize="24dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"/>
+        android:layout_marginTop="64dp"
+        android:text="@string/business_homepage"
+        android:textSize="24dp" />
 
     <Button
         android:id="@+id/signOut"

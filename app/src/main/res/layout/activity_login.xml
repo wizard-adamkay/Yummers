@@ -10,10 +10,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signIn"
-        android:textSize="24dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="230dp"
+        android:text="@string/sign_in_acc"
+        android:textSize="24dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@drawable/yummers" />
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -38,17 +46,46 @@
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
     </GridLayout>
 
     <Button
-        android:id="@+id/signUp"
+        android:id="@+id/signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/gridLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="86dp"
         android:onClick="signIn"
         android:text="@string/signIn" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gridLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/no_account"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/gridLayout"
+            android:layout_marginTop="10dp"
+            android:text="@string/redirect"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="signUp"/>
+    </LinearLayout>
 
 </RelativeLayout>
