@@ -20,11 +20,11 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="signOut"
-        android:text="SignOut"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:layout_alignParentRight="true"/>
+        android:onClick="signOut"
+        android:text="SignOut" />
 
     <GridLayout
         android:id="@+id/gridLayout"
