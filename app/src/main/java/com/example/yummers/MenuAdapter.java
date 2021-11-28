@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yummers.models.Menus;
+
 import java.util.ArrayList;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> {
@@ -32,8 +34,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MenuAdapter.MyViewHolder holder, int position) {
         Menus menus = menusArrayList.get(position);
 
-        holder.name.setText(menus.name);
-        holder.price.setText(String.valueOf(menus.price));
+        holder.name.setText(menus.getName());
+        holder.price.setText(String.valueOf(menus.getPrice()));
     }
 
     @Override
