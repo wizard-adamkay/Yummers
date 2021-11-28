@@ -23,6 +23,7 @@ import com.google.firebase.firestore.auth.User;
 public class LoginActivity extends AppCompatActivity {
     FirebaseFirestore db;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
