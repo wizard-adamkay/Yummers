@@ -13,7 +13,7 @@ import com.example.yummers.models.Business;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class BusinessHomepageActivity extends AppCompatActivity {
-
+    Business business;
 
 
     @Override
@@ -21,15 +21,22 @@ public class BusinessHomepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_homepage);
         TextView title = findViewById(R.id.textView4);
-        Business business = (Business) getIntent().getSerializableExtra("business");
+        business = (Business) getIntent().getSerializableExtra("business");
         Log.e("business", business.toString());
         title.setText(business.getName());
     }
     public void pastOrders(View view){
-
+        Intent intent = new Intent(this, PastOrdersActivity.class);
+        String restaurantID = business.getID();
+        intent.putExtra("restaurantID", restaurantID);
+        startActivity(intent);
     }
-    public void currentOrders(View view){
 
+    public void currentOrders(View view){
+        Intent intent = new Intent(this, OrderViewActivity.class);
+        String restaurantID = business.getID();
+        intent.putExtra("restaurantID", restaurantID);
+        startActivity(intent);
     }
     public void signOut(View view) {
         FirebaseAuth.getInstance().signOut();

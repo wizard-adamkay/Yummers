@@ -80,6 +80,7 @@ public class Business implements Serializable {
         this.orderHistory = orderHistory;
     }
 
+    public void removeOrder(int position) {this.currentOrders.remove(position);}
     public String getID() {
         return ID;
     }
