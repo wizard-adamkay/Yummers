@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
         <entry key="..\:/BCIT/COMP7082/Yummers/app/src/main/res/layout/activity_menu.xml" value="0.264" />
         <entry key="..\:/BCIT/COMP7082/Yummers/app/src/main/res/layout/activity_search.xml" value="0.264" />
         <entry key="..\:/BCIT/COMP7082/Yummers/app/src/main/res/layout/rest_row.xml" value="0.4" />
+        <entry key="..\:/Users/Adam k/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_business_homepage.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_cust_order.xml" value="0.33" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_customer_menu.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_order_status.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_order_view.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_past_orders.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/item.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/order_row.xml" value="0.21875" />
+        <entry key="..\:/Users/Kris/AndroidStudioProjects/Yummers/app/src/main/res/layout/rest_row.xml" value="0.21875" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_add_item.xml" value="0.264" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_business_homepage.xml" value="0.264" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_login.xml" value="0.264" />
@@ -18,7 +27,6 @@
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_user_homepage.xml" value="0.264" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/order_row.xml" value="0.264" />
-        <entry key="..\:/Users/Adam k/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.190284528026642" />
         <entry key="app/src/main/res/layout/activity_business_homepage.xml" value="0.2336439930051302" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16770833333333332" />

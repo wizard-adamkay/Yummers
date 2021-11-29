@@ -3,8 +3,11 @@ package com.example.yummers;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.yummers.models.Business;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 public class OrderViewActivity extends AppCompatActivity {
     FirebaseFirestore db;
     String restaurantID;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +45,20 @@ public class OrderViewActivity extends AppCompatActivity {
                             orders.add(order);
                         }
                         OrderArrayAdapter adapter = new OrderArrayAdapter(OrderViewActivity.this, orders);
-                        ListView listView = (ListView) findViewById(R.id.orderLV);
+                        listView = (ListView) findViewById(R.id.orderLV);
                         listView.setAdapter(adapter);
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Order order = (Order) parent.getAdapter().getItem(position);
+                                Log.d("asdf", order.toString());
+                                Intent intent = new Intent(getApplicationContext(), OrderStatusActivity.class);
+                                intent.putExtra("restaurantID", restaurantID);
+                                intent.putExtra("order number", position);
+                                startActivity(intent);
+                            }
+                        });
+
                     } else {
                         Log.d("asdf", "No such document");
                     }
@@ -53,4 +69,8 @@ public class OrderViewActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
 }
