@@ -1,4 +1,4 @@
-package com.example.yummers;
+package com.example.yummers.models;
 
 public class Menus {
     String name;

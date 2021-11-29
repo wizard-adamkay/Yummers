@@ -21,6 +21,10 @@ import java.util.ArrayList;
 
 public class UserHomepageActivity extends AppCompatActivity {
     FirebaseFirestore db;
+
+    /** Proxy - Client BusinessManager */
+    IBusinessManager proxyBusinessManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,28 @@ public class UserHomepageActivity extends AppCompatActivity {
             }
         });
     }
+
+    /** Proxy - Service BusinessManager */
+    public void allRestaurant(View view) {
+        proxyBusinessManager = new ProxyBusinessManager();
+        proxyBusinessManager.getRestaurants(db, this);
+    }
+
+//    public void allRestaurant(View view) {
+//        db.collection("restaurants").get().addOnSuccessListener(queryDocumentSnapshots -> {
+//           ArrayList<Business> allBusiness = new ArrayList<>();
+//
+//           if (!queryDocumentSnapshots.getDocuments().isEmpty()) {
+//               for (int i = 0; i < queryDocumentSnapshots.size(); i++) {
+//                   Business b = queryDocumentSnapshots.getDocuments().get(i).toObject(Business.class);
+//                   allBusiness.add(b);
+//               }
+//               Intent intent = new Intent(this, SearchActivity.class);
+//               intent.putExtra("b", allBusiness);
+//               startActivity(intent);
+//           }
+//        });
+//    }
 
     public void viewMenu(View view) {
         Intent intent = new Intent(this, MenuActivity.class);

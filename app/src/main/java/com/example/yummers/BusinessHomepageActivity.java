@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.yummers.models.Business;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class BusinessHomepageActivity extends AppCompatActivity {
     Business business;
@@ -35,6 +36,11 @@ public class BusinessHomepageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, OrderViewActivity.class);
         String restaurantID = business.getID();
         intent.putExtra("restaurantID", restaurantID);
+        startActivity(intent);
+    }
+    public void signOut(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent =  new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
