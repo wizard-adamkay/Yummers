@@ -11,19 +11,19 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register_a_business"
-        android:textSize="24dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="52dp"
+        android:text="@string/register_a_business"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Business Information"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/textView"
-        android:layout_marginTop="100dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Business Information" />
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/business_name"/>
+            android:hint="@string/business_name"/>
 
         <EditText
             android:id="@+id/businessAddress"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPostalAddress"
-            android:text="@string/business_location"
+            android:hint="@string/business_location"
             android:layout_marginTop="5dp"/>
 
         <EditText
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone"
-            android:text="@string/business_phone_number"
+            android:hint="@string/business_phone_number"
             android:layout_marginTop="5dp"/>
     </GridLayout>
 
@@ -65,10 +65,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Admin Account Information"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/gridLayout"
-        android:layout_marginTop="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Business Account Credentials" />
 
     <GridLayout
         android:id="@+id/gridLayout2"
@@ -101,10 +101,11 @@
         android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signUp"
-        android:onClick="register"
         android:layout_below="@id/gridLayout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="register"
+        android:text="@string/signUp" />
 
 </RelativeLayout>
