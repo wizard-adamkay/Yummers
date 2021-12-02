@@ -8,23 +8,32 @@
     tools:context=".BusinessHomepageActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="250dp"
         android:text="@string/business_homepage"
-        android:textSize="24dp" />
+        android:textSize="20sp" />
 
     <Button
-        android:id="@+id/signOut"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@android:color/darker_gray"
         android:onClick="signOut"
-        android:text="SignOut" />
+        android:text="@string/signout" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/yummers" />
 
     <Button
         android:id="@+id/button3"
@@ -35,6 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
+
     <Button
         android:id="@+id/update_menu_btn"
         android:layout_width="wrap_content"
@@ -44,6 +54,8 @@
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
@@ -52,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:onClick="viewMenu"
         android:text="@string/view_menu"/>
 
@@ -62,7 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:onClick="myMenu"
         android:text="@string/my_menu"/>
 
@@ -70,7 +84,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/current_orders"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:layout_below="@+id/update_menu_btn"
         android:layout_centerHorizontal="true"
         android:onClick="currentOrders"
