@@ -63,17 +63,16 @@
         android:backgroundTint="@android:color/holo_blue_dark"
         android:layout_marginTop="30dp"
         android:onClick="search"
-        android:text="Search" />
+        android:text="@string/search_business" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="allRestaurant"
+        android:text="@string/all_business"
         android:layout_below="@+id/button5"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:onClick="viewMenu"
-        android:text="@string/view_menu" />
+        android:layout_marginTop="10dp"/>
 
 </RelativeLayout>
