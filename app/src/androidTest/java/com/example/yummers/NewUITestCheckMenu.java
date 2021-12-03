@@ -24,26 +24,27 @@ import androidx.test.runner.AndroidJUnit4;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class UITestSearch1 {
+public class NewUITestCheckMenu {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void uITestSearch1() {
+    public void newUITestCheckMenu() {
         ViewInteraction materialButton = onView(
                 allOf(withId(R.id.signIn), withText("Sign In"),
                         childAtPosition(
                                 allOf(withId(R.id.linearLayout),
                                         childAtPosition(
                                                 withId(R.id.relativeLayout),
-                                                1)),
+                                                2)),
                                 0),
                         isDisplayed()));
         materialButton.perform(click());
@@ -54,10 +55,10 @@ public class UITestSearch1 {
                                 allOf(withId(R.id.gridLayout),
                                         childAtPosition(
                                                 withId(R.id.relativeLayout),
-                                                1)),
+                                                2)),
                                 0),
                         isDisplayed()));
-        appCompatEditText.perform(replaceText("z@z.com"), closeSoftKeyboard());
+        appCompatEditText.perform(replaceText("n@n.com"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
                 allOf(withId(R.id.password),
@@ -65,19 +66,19 @@ public class UITestSearch1 {
                                 allOf(withId(R.id.gridLayout),
                                         childAtPosition(
                                                 withId(R.id.relativeLayout),
-                                                1)),
+                                                2)),
                                 1),
                         isDisplayed()));
         appCompatEditText2.perform(replaceText("password"), closeSoftKeyboard());
 
         ViewInteraction materialButton2 = onView(
-                allOf(withId(R.id.signUp), withText("Sign In"),
+                allOf(withId(R.id.signIn), withText("Sign In"),
                         childAtPosition(
                                 allOf(withId(R.id.relativeLayout),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                2),
+                                3),
                         isDisplayed()));
         materialButton2.perform(click());
 
@@ -87,25 +88,14 @@ public class UITestSearch1 {
             e.printStackTrace();
         }
 
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.searchEditText),
-                        childAtPosition(
-                                allOf(withId(R.id.gridLayout),
-                                        childAtPosition(
-                                                withId(R.id.relativeLayout),
-                                                2)),
-                                0),
-                        isDisplayed()));
-        appCompatEditText3.perform(replaceText("place"), closeSoftKeyboard());
-
         ViewInteraction materialButton3 = onView(
-                allOf(withId(R.id.button5), withText("Search"),
+                allOf(withId(R.id.update_menu_btn), withText("Update Menu"),
                         childAtPosition(
                                 allOf(withId(R.id.relativeLayout),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                3),
+                                4),
                         isDisplayed()));
         materialButton3.perform(click());
 
@@ -116,10 +106,18 @@ public class UITestSearch1 {
         }
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.tvBig), withText("place"),
-                        withParent(withParent(withId(R.id.cardRest))),
+                allOf(withId(R.id.tvItemName), withText("Bread"),
+                        withParent(allOf(withId(R.id.item_container),
+                                withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
                         isDisplayed()));
-        textView.check(matches(withText("place")));
+        textView.check(matches(withText("Bread")));
+
+        ViewInteraction textView2 = onView(
+                allOf(withId(R.id.tvItemName), withText("Buns"),
+                        withParent(allOf(withId(R.id.item_container),
+                                withParent(IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class)))),
+                        isDisplayed()));
+        textView2.check(matches(withText("Buns")));
     }
 
     private static Matcher<View> childAtPosition(

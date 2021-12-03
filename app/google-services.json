@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1049311027663",
+    "project_id": "yummers-5ff64",
+    "storage_bucket": "yummers-5ff64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049311027663:android:7e9ca56f82fe8313fb72ba",
+        "android_client_info": {
+          "package_name": "com.example.yummers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049311027663-ij19jl07gle96epd1p6jufgvl6rqmein.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDASL_Uvmit1HvtcSSbE3_SHesbO_fnSUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049311027663-ij19jl07gle96epd1p6jufgvl6rqmein.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
