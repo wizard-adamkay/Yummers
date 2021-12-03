@@ -56,6 +56,8 @@ public class BusinessHomepageActivity extends AppCompatActivity {
 
     public void myMenu(View view) {
         Intent intent = new Intent(this, MyMenuActivity.class);
+        String restaurantID = business.getID();
+        intent.putExtra("restaurantID", restaurantID);
         startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.yummers;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,11 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
+import com.example.yummers.models.Business;
+import com.example.yummers.models.Menu;
 import com.example.yummers.models.Menus;
+import com.example.yummers.models.Order;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -23,13 +31,11 @@ import java.util.ArrayList;
 
 public class MyMenuActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    ArrayList<Menus> menusArrayList;
-    MenuAdapter menuAdapter;
     FirebaseAuth fireAuth;
     FirebaseFirestore db;
     FirebaseUser user;
-    ProgressDialog progressDialog;
+    String restaurantID;
+    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,50 +45,33 @@ public class MyMenuActivity extends AppCompatActivity {
         fireAuth = FirebaseAuth.getInstance();
         user = fireAuth.getCurrentUser();
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Fetching Data...");
-        progressDialog.show();
-
-        recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         db = FirebaseFirestore.getInstance();
-        menusArrayList = new ArrayList<Menus>();
-        menuAdapter = new MenuAdapter(MyMenuActivity.this, menusArrayList);
-
-        recyclerView.setAdapter(menuAdapter);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            restaurantID = extras.getString("restaurantID");
+        }
 
         EventChangeListener();
     }
 
     private void EventChangeListener() {
-        db.collection("menus").orderBy("name", Query.Direction.ASCENDING)
-            .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                @Override
-                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                    if (error != null) {
-                        if (progressDialog.isShowing()) {
-                            progressDialog.dismiss();
-                        }
-
-                        Log.e("Firestore error", error.getMessage());
-                    }
-
-                    for (DocumentChange dc : value.getDocumentChanges()) {
-                        if (dc.getType() == DocumentChange.Type.ADDED) {
-                            if (dc.getDocument().toObject(Menus.class).getOwner().equals(user.getUid())) {
-                                menusArrayList.add(dc.getDocument().toObject(Menus.class));
-                            }
-                        }
-                        menuAdapter.notifyDataSetChanged();
-
-                        if (progressDialog.isShowing()) {
-                            progressDialog.dismiss();
-                        }
+        db.collection("restaurants").document(restaurantID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("asdf", "DocumentSnapshot data: " + document.getData());
+                        Business business = task.getResult().toObject(Business.class);
+                        menu = business.getMenu();
+                        ItemAdapter adapter = new ItemAdapter(MyMenuActivity.this, menu.getItems());
+                        ListView listView = (ListView) findViewById(R.id.myMenuLV);
+                        listView.setAdapter(adapter);
+                    } else {
+                        Log.d("asdf", "No such document");
                     }
                 }
-            });
+            }
+        });
     }
 }
