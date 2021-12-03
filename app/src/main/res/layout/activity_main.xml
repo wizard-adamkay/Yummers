@@ -52,7 +52,6 @@
             android:layout_marginTop="200dp"
             android:onClick="signUp"
             android:text="@string/sign_up" />
-
     </LinearLayout>
 
     <Button

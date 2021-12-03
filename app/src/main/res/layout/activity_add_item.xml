@@ -13,7 +13,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginStart="80dp"
         android:text="@string/add_item"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -58,8 +58,6 @@
         android:inputType="numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/item_price_text"
         app:layout_constraintTop_toBottomOf="@+id/item_name_input" />
-
-
 
     <Button
         android:id="@+id/item_confirm_btn"
