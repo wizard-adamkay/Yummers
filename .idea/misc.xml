@@ -7,31 +7,6 @@
         <entry key="..\:/BCIT/COMP7082/Yummers/app/src/main/res/layout/activity_search.xml" value="0.264" />
         <entry key="..\:/BCIT/COMP7082/Yummers/app/src/main/res/layout/rest_row.xml" value="0.4" />
         <entry key="..\:/Users/Adam k/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/activity_add_item.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/activity_business_homepage.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/activity_login.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/activity_menu.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/item.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Desktop/Yummers-dev/Yummers-dev/app/src/main/res/layout/order_row.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/drawable/gradient_background.xml" value="0.2703125" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_add_item.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_business_homepage.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_cust_order.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_customer_menu.xml" value="0.13125" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_menu_business.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_my_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_order_view.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_search.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_sign_up.xml" value="0.2346014492753623" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/activity_user_homepage.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/item.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/order_row.xml" value="0.264" />
-        <entry key="..\:/Users/Shahzaib/Documents/GitHub/Yummers/app/src/main/res/layout/rest_row.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_add_item.xml" value="0.264" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_business_homepage.xml" value="0.264" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/activity_login.xml" value="0.264" />
@@ -44,17 +19,15 @@
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/Users/eunsa/AndroidStudioProjects/Yummers/app/src/main/res/layout/order_row.xml" value="0.264" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.190284528026642" />
-        <entry key="app/src/main/res/layout/activity_business_homepage.xml" value="0.2336439930051302" />
+        <entry key="app/src/main/res/layout/activity_business_homepage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_menu_business.xml" value="0.26959650994967915" />
         <entry key="app/src/main/res/layout/activity_my_menu.xml" value="0.16822916666666668" />
-        <entry key="app/src/main/res/layout/activity_order_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.24048913043478262" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_user_homepage.xml" value="0.24048913043478262" />
         <entry key="app/src/main/res/layout/item.xml" value="0.16822916666666668" />
-        <entry key="app/src/main/res/layout/order_row.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -89,6 +89,7 @@
         android:layout_below="@+id/update_menu_btn"
         android:layout_centerHorizontal="true"
         android:onClick="currentOrders"
+        android:text="Current Orders"
         />
 
 </RelativeLayout>
