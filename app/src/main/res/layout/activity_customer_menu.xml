@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:text="View Order"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +20,7 @@
         android:id="@+id/tvRestName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Menu"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"

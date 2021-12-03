@@ -20,7 +20,7 @@ public class BusinessHomepageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_homepage);
-        TextView title = findViewById(R.id.textView4);
+        TextView title = findViewById(R.id.textView5);
         business = (Business) getIntent().getSerializableExtra("business");
         Log.e("business", business.toString());
         title.setText(business.getName());
@@ -56,6 +56,8 @@ public class BusinessHomepageActivity extends AppCompatActivity {
 
     public void myMenu(View view) {
         Intent intent = new Intent(this, MyMenuActivity.class);
+        String restaurantID = business.getID();
+        intent.putExtra("restaurantID", restaurantID);
         startActivity(intent);
     }
 }

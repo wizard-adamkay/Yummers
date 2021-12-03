@@ -14,7 +14,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
         android:text="@string/user_homepage"
-        android:textSize="20dp" />
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -69,10 +70,11 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="allRestaurant"
-        android:text="@string/all_business"
         android:layout_below="@+id/button5"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:onClick="allRestaurant"
+        android:text="@string/all_business" />
 
 </RelativeLayout>
