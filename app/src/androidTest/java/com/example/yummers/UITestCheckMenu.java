@@ -41,10 +41,7 @@ public class UITestCheckMenu {
         ViewInteraction materialButton = onView(
                 allOf(withId(R.id.signIn), withText("Sign In"),
                         childAtPosition(
-                                allOf(withId(R.id.linearLayout),
-                                        childAtPosition(
-                                                withId(R.id.relativeLayout),
-                                                1)),
+                                allOf(withId(R.id.linearLayout)),
                                 0),
                         isDisplayed()));
         materialButton.perform(click());
