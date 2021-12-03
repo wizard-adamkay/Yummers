@@ -49,13 +49,13 @@
         android:id="@+id/update_menu_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="updateMenu"
-        android:text="@string/update_menu"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
         android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="updateMenu"
+        android:text="@string/update_menu"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
