@@ -20,12 +20,12 @@
     <string name="business_location">Business Location</string>
     <string name="business_phone_number">Business Phone Number</string>
     <string name="current_orders">Current Orders</string>
-    <string name="update_menu">My Menu</string>
+    <string name="update_menu">Update Menu</string>
     <string name="textview">TextView</string>
     <string name="order_history">Order History</string>
     <string name="user_homepage"><b>You are signed in as a user, welcome!</b></string>
     <string name="business_homepage"><b>You are signed in as a business, welcome!</b></string>
-    <string name="add_item"><b>Please enter an item to add</b></string>
+    <string name="add_item"><b>Please enter an item to add to the menu</b></string>
     <string name="search">Search</string>
     <string name="order_status"><b>Order Status</b></string>
     <string name="view_menu">All Menus</string>
